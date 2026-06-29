@@ -1,6 +1,7 @@
 from alumnos import registrar_alumno, listar_alumnos, modificar_alumno, eliminar_alumno, buscar_alumno
 from archivos import cargar_json
 from utilidades import menu_principal
+from estadisticas import mayor_nota
 
 continuar = True
 cargar_alumnos = cargar_json("alumnos.json", "alumnos")
@@ -23,7 +24,7 @@ while continuar:
         case 5:
             eliminar = eliminar_alumno(cargar_alumnos)
         case 6:
-            print("ver estadisticas")
+            pass
         case 7:
             continuar = False
             print("Adiós 👋")

@@ -1,20 +1,9 @@
 from archivos import guardar_datos
 from utilidades import menu_buscar
 
-def registrar_alumno(lista):
-    alumno = {}
-
+def registrar_alumno(alumnos):
+ 
     dni = int(input("Ingresa el DNI del alumno: "))
-    existe_dni = False
-    for alumnos in lista:
-        if alumnos["dni"] == dni:
-            existe_dni = True
-    while existe_dni == True:
-        dni = int(input("Ese DNI ya existe, reingrese el DNI: "))
-        existe_dni = False
-        for alumnos in lista:
-            if alumnos["dni"] == dni:
-                existe_dni = True
 
     nombre = input("Ingresa el nombre del alumno: ")
     while len(nombre) == 0:
@@ -32,38 +21,40 @@ def registrar_alumno(lista):
     while nota <= 0 or nota >= 11:
         nota = int(input("Error, la nota debe estar entre 1 y 10: "))
 
-    alumno["dni"] = dni
-    alumno["nombre"] = nombre
-    alumno["apellido"] = apellido
-    alumno["edad"] = edad
-    alumno["nota"] = nota
+    alumnos[str(dni)] = {
+    "nombre": nombre,
+    "apellido": apellido,
+    "edad": edad,
+    "nota": nota
+    }
 
+    guardar_datos(alumnos)
+    return alumnos
 
-    lista.append(alumno)
-    guardar_datos(lista)
-    return lista 
+def listar_alumnos(alumnos):
 
-def listar_alumnos(lista):
-
-    if len(lista) == 0:
+    if len(alumnos) == 0:
         mensaje = f"No hay alumnos todavia para listar"
     else:
         mensaje = ""
-        for alumnos in lista:
-            mensaje += (f"DNI: {alumnos['dni']}\n"
-                       f"Nombre: {alumnos['nombre']}\n"
-                       f"Apellido: {alumnos['apellido']}\n"
-                       f"Edad: {alumnos['edad']}\n"
-                       f"Nota: {alumnos['nota']}\n"
+        for dni in alumnos:
+            mensaje += (f"DNI: {dni}\n"
+                       f"Nombre: {alumnos[dni]['nombre']}\n"
+                       f"Apellido: {alumnos[dni]['apellido']}\n"
+                       f"Edad: {alumnos[dni]['edad']}\n"
+                       f"Nota: {alumnos[dni]['nota']}\n"
                        f"-----------------------------\n")
     return mensaje      
 
-def modificar_alumno(lista):
+def modificar_alumno(alumnos):
 
-    ingresar_dni = int(input("Ingresa el DNI del alumno que necesitas modificar: "))    
+    ingresar_dni = input("Ingresa el DNI del alumno que necesitas modificar: ")  
+    encontrado = False
 
-    for alumno in lista:
-        if alumno['dni'] == ingresar_dni:
+    for dni in alumnos:
+        
+        if dni == ingresar_dni:
+            encontrado = True
             print("Dato encontrado con exito!")    
             menu_buscar()
             modificar = input("Ingresa la opcion que necesitas modificar: ")
@@ -73,63 +64,81 @@ def modificar_alumno(lista):
                     nombre = input("Ingresa el nombre del alumno: ")
                     while len(nombre) == 0:
                         nombre = input("El dato no puede estar vacio, ingrese el nombre del alumno: ")
-                    alumno["nombre"] = nombre
+                    alumnos[ingresar_dni]["nombre"] = nombre
                     print('¡Datos modificados con exito!')
                 case "2":
                     apellido = input("Ingresa el apellido del alumno: ")
                     while len(apellido) == 0:
                         nombre = input("El dato no puede estar vacio, ingrese el apellido del alumno: ")
-                    alumno["apellido"] = apellido
+                    alumnos[ingresar_dni]["apellido"] = apellido
                     print('¡Datos modificados con exito!')
                 case "3":
                     edad = int(input("Ingresa la edad del alumno: "))
                     while edad < 0:
                         edad = int(input("Error al ingresar la edad, intentelo nuevamente: "))
-                    alumno["edad"] = edad
+                    alumnos[ingresar_dni]["edad"] = edad
                     print('¡Datos modificados con exito!')
                 case "4":
                     nota = int(input("Ingresa la nota del alumno: "))
                     while nota <= 0 or nota >= 11:
                         nota = int(input("Error, la nota debe estar entre 1 y 10: "))
-                    alumno["nota"] = nota
+                    alumnos[ingresar_dni]["nota"] = nota
                     print('¡Datos modificados con exito!')
+        else:
+            print(f"El DNI que ingresaste no existe en el listado de alumnos 😥")
 
-    guardar_datos(lista)
+    guardar_datos(alumnos)
 
-    return lista
+    return alumnos
 
-def buscar_alumno(lista):
-    ingresar_dni = int(input("Ingresa el DNI del alumno que necesitas eliminar: "))
+def buscar_alumno(alumnos):
+    ingresar_dni = input("Ingresa el DNI del alumno que necesitas eliminar: ")
+    encontrado = False
 
-    for alumno in lista:
-        if alumno['dni'] == ingresar_dni:
-            mensaje = f"Dato encontrado con exito, nombre {alumno['nombre']} {alumno['apellido']}, edad {alumno['edad']}, nota {alumno['nota']}."
+    for dni in alumnos:
+        if dni == ingresar_dni:
+            encontrado = True
+            mensaje = f"Dato encontrado con exito, nombre {alumnos[dni]['nombre']} {alumnos[dni]['apellido']}, edad {alumnos[dni]['edad']}, nota {alumnos[dni]['nota']}."
         else:
             mensaje = f"El DNI que ingresaste no existe en el listado de alumnos 😥"
 
     return mensaje
      
-def eliminar_alumno(lista):
+def eliminar_alumno(alumnos):
 
-    ingresar_dni = int(input("Ingresa el DNI del alumno que necesitas eliminar: "))
+    ingresar_dni = input("Ingresa el DNI del alumno que necesitas eliminar: ")
 
-    for alumno in lista:
-        if alumno['dni'] == ingresar_dni:
-            print(f"Dato encontrado, la baja a realizar es del alumno: {alumno['nombre']} {alumno['apellido']}")
-            baja = input(f"¿Queres darlo de baja? (Si/No)")
+    encontrado = False
+    eliminar = False
+
+    for dni in alumnos:
+
+        if dni == ingresar_dni:
+
+            encontrado = True
+
+            print(f"Dato encontrado, la baja a realizar es del alumno: {alumnos[dni]['nombre']} {alumnos[dni]['apellido']}")
+
+            baja = input("¿Querés darlo de baja? (Si/No): ")
+
             match baja:
+
                 case "SI" | "Si" | "si":
-                    alumno["dni"] = ""
-                    alumno["nombre"] = ""
-                    alumno["apellido"] = ""
-                    alumno["edad"] = ""
-                    alumno["nota"] = ""
-                    print("Alumno dado de baja")
+                    eliminar = True
+
                 case "NO" | "No" | "no":
                     print("El alumno no se dio de baja")
+
                 case _:
-                    print("No entendi la respuesta, intentalo nuevamente 👩‍💻")
+                    print("No entendí la respuesta, intentalo nuevamente 👩‍💻")
 
-    guardar_datos(lista)
+    if encontrado == False:
+        print("El DNI que ingresaste no existe 😥")
 
-    return lista
+    elif eliminar == True:
+        alumnos.pop(ingresar_dni)
+        print("Alumno dado de baja")
+
+    guardar_datos(alumnos)
+
+    return alumnos

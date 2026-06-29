@@ -1,39 +1,10 @@
 {
-    "alumnos": [
-        {
-            "dni": 132,
-            "nombre": "agus",
-            "apellido": "grandon",
-            "edad": 23,
-            "nota": 5
-        },
-        {
-            "dni": 12344,
-            "nombre": "agus",
-            "apellido": "grandon",
-            "edad": 34,
-            "nota": 2
-        },
-        {
-            "dni": 345676878,
-            "nombre": "federico",
-            "apellido": "salazar",
-            "edad": 34,
+    "alumnos": {
+        "123": {
+            "nombre": "sofia",
+            "apellido": "ramirez",
+            "edad": 45,
             "nota": 7
-        },
-        {
-            "dni": "",
-            "nombre": "",
-            "apellido": "",
-            "edad": "",
-            "nota": ""
-        },
-        {
-            "dni": 41353624,
-            "nombre": "florencia",
-            "apellido": "lopez",
-            "edad": 23,
-            "nota": 9
         }
-    ]
+    }
 }

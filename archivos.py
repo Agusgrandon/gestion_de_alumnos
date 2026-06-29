@@ -5,9 +5,9 @@ def cargar_json(nombre_archivo, key):
         data = json.load(archivo)
     return(data[key])
 
-def guardar_datos(lista_alumnos):
+def guardar_datos(alumnos):
     with open("alumnos.json", "w", encoding="utf-8") as archivo:
-        json.dump({"alumnos": lista_alumnos}, archivo, indent=4)
+        json.dump({"alumnos": alumnos}, archivo, indent=4)
 
 
 
