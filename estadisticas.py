@@ -1,23 +1,23 @@
-"""6. Estadísticas 
+def cantidad_de_alumnos(alumnos):
+    cantidad = 0
 
-Implementar funciones que informen: 
+    for dni in alumnos:
+        cantidad += 1 
+    
+    resultado = f"La cantidad de estudiantes es {cantidad}"
 
-Cantidad total de alumnos.  
+    return resultado
 
-Promedio de notas.  
+def promedio_notas(alumnos):
+    suma = 0
+    cantidad = 0
 
-Alumno con mayor nota.  
+    for dni in alumnos:
+        suma += alumnos[dni]["nota"]
+        cantidad += 1
 
-Cantidad de aprobados (≥ 6).  
-
-Cantidad de desaprobados (< 6).  
-
-7. Persistencia """
-def mayor_nota(lista):
-    mayor = 10
-    for alumno, nota in lista.items():
-        if nota > mayor:
-            mayor = nota
-            nombre = alumno
-
-    print("el alumno con mayor nota es {nombre}")
+    if cantidad > 0:
+        promedio = suma / cantidad
+        mensaje = f"El promedio de las notas es {promedio}"
+    else:
+        mensaje = f"No hay alumnos cargados."
