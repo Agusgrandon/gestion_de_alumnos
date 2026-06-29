@@ -1,8 +1,6 @@
-from archivos import cargar_archivo, guardar_datos
+from archivos import guardar_datos
 
-def registrar_alumno():
-    lista = cargar_archivo()
-
+def registrar_alumno(lista):
     alumno = {}
 
     dni = int(input("Ingresa el DNI del alumno: "))
@@ -26,11 +24,11 @@ def registrar_alumno():
         apellido = input("El dato no puede estar vacio, ingrese el apellido del alumno: ")
 
     edad = int(input("Ingresa la edad del alumno: "))
-    while edad <= 0:
+    while edad < 0:
      edad = int(input("Error al ingresar la edad, intentelo nuevamente: "))
 
     nota = int(input("Ingresa la nota del alumno: "))
-    while nota <= 0 or nota >= 10:
+    while nota <= 0 or nota >= 11:
         nota = int(input("Error, la nota debe estar entre 1 y 10: "))
 
     alumno["dni"] = dni
@@ -41,8 +39,22 @@ def registrar_alumno():
 
 
     lista.append(alumno)
-
     guardar_datos(lista)
-   
+    return lista 
 
-registrar_alumno()
+
+
+def listar_alumnos(lista):
+
+    if len(lista) == 0:
+        mensaje = f"No hay alumnos todavia para listar"
+    else:
+        mensaje = ""
+        for alumnos in lista:
+            mensaje += (f"DNI: {alumnos['dni']}.\n"
+                       f"Nombre: {alumnos['nombre']}.\n"
+                       f"Apellido: {alumnos['apellido']}.\n"
+                       f"Edad: {alumnos['edad']}.\n"
+                       f"Nota: {alumnos['nota']}.\n"
+                       f"-----------------------------\n")
+    return mensaje                

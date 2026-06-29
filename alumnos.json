@@ -1,21 +1,11 @@
-[
-    {
-        "dni": 41353624,
-        "nombre": "agus",
-        "apellido": "grandon"
-    },
-    {
-        "dni": 45963852,
-        "nombre": "tomas",
-        "apellido": "salmon",
-        "edad": 23,
-        "nota": 12
-    },
-    {
-        "dni": 12345678,
-        "nombre": "sofia",
-        "apellido": "ramirez",
-        "edad": 12,
-        "nota": 4
-    }
-]
+{
+    "alumnos": [
+        {
+            "dni": 132,
+            "nombre": "agus",
+            "apellido": "grandon",
+            "edad": 23,
+            "nota": 5
+        }
+    ]
+}
