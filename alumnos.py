@@ -43,8 +43,6 @@ def registrar_alumno(lista):
     guardar_datos(lista)
     return lista 
 
-
-
 def listar_alumnos(lista):
 
     if len(lista) == 0:
@@ -52,11 +50,11 @@ def listar_alumnos(lista):
     else:
         mensaje = ""
         for alumnos in lista:
-            mensaje += (f"DNI: {alumnos['dni']}.\n"
-                       f"Nombre: {alumnos['nombre']}.\n"
-                       f"Apellido: {alumnos['apellido']}.\n"
-                       f"Edad: {alumnos['edad']}.\n"
-                       f"Nota: {alumnos['nota']}.\n"
+            mensaje += (f"DNI: {alumnos['dni']}\n"
+                       f"Nombre: {alumnos['nombre']}\n"
+                       f"Apellido: {alumnos['apellido']}\n"
+                       f"Edad: {alumnos['edad']}\n"
+                       f"Nota: {alumnos['nota']}\n"
                        f"-----------------------------\n")
     return mensaje      
 
@@ -95,4 +93,43 @@ def modificar_alumno(lista):
                         nota = int(input("Error, la nota debe estar entre 1 y 10: "))
                     alumno["nota"] = nota
                     print('¡Datos modificados con exito!')
+
+    guardar_datos(lista)
+
+    return lista
+
+def buscar_alumno(lista):
+    ingresar_dni = int(input("Ingresa el DNI del alumno que necesitas eliminar: "))
+
+    for alumno in lista:
+        if alumno['dni'] == ingresar_dni:
+            mensaje = f"Dato encontrado con exito, nombre {alumno['nombre']} {alumno['apellido']}, edad {alumno['edad']}, nota {alumno['nota']}."
+        else:
+            mensaje = f"El DNI que ingresaste no existe en el listado de alumnos 😥"
+
+    return mensaje
+     
+def eliminar_alumno(lista):
+
+    ingresar_dni = int(input("Ingresa el DNI del alumno que necesitas eliminar: "))
+
+    for alumno in lista:
+        if alumno['dni'] == ingresar_dni:
+            print(f"Dato encontrado, la baja a realizar es del alumno: {alumno['nombre']} {alumno['apellido']}")
+            baja = input(f"¿Queres darlo de baja? (Si/No)")
+            match baja:
+                case "SI" | "Si" | "si":
+                    alumno["dni"] = ""
+                    alumno["nombre"] = ""
+                    alumno["apellido"] = ""
+                    alumno["edad"] = ""
+                    alumno["nota"] = ""
+                    print("Alumno dado de baja")
+                case "NO" | "No" | "no":
+                    print("El alumno no se dio de baja")
+                case _:
+                    print("No entendi la respuesta, intentalo nuevamente 👩‍💻")
+
+    guardar_datos(lista)
+
     return lista

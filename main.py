@@ -1,4 +1,4 @@
-from alumnos import registrar_alumno, listar_alumnos, modificar_alumno
+from alumnos import registrar_alumno, listar_alumnos, modificar_alumno, eliminar_alumno, buscar_alumno
 from archivos import cargar_json
 from utilidades import menu_principal
 
@@ -16,10 +16,16 @@ while continuar:
             mostrar_alumnos = listar_alumnos(cargar_alumnos)
             print(mostrar_alumnos)
         case 3:
-            print("buscar alumno por dni")
+            buscar = buscar_alumno(cargar_alumnos)
+            print(buscar)
         case 4:
             modificar = modificar_alumno(cargar_alumnos)
+        case 5:
+            eliminar = eliminar_alumno(cargar_alumnos)
+        case 6:
+            print("ver estadisticas")
         case 7:
             continuar = False
+            print("Adiós 👋")
         case _:
             print("La opcion ingresada no es correcta, intentelo nuevamente")

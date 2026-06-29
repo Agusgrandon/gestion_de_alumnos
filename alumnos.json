@@ -20,6 +20,20 @@
             "apellido": "salazar",
             "edad": 34,
             "nota": 7
+        },
+        {
+            "dni": "",
+            "nombre": "",
+            "apellido": "",
+            "edad": "",
+            "nota": ""
+        },
+        {
+            "dni": 41353624,
+            "nombre": "florencia",
+            "apellido": "lopez",
+            "edad": 23,
+            "nota": 9
         }
     ]
 }
