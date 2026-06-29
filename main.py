@@ -24,7 +24,7 @@ while continuar:
         case 5:
             eliminar = eliminar_alumno(cargar_alumnos)
         case 6:
-            pass
+            mayor_nota(cargar_alumnos)
         case 7:
             continuar = False
             print("Adiós 👋")
