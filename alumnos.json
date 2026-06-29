@@ -3,5 +3,12 @@
         "dni": 41353624,
         "nombre": "agus",
         "apellido": "grandon"
+    },
+    {
+        "dni": 45963852,
+        "nombre": "tomas",
+        "apellido": "salmon",
+        "edad": 23,
+        "nota": 12
     }
 ]
