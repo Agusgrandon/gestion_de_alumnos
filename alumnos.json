@@ -10,5 +10,12 @@
         "apellido": "salmon",
         "edad": 23,
         "nota": 12
+    },
+    {
+        "dni": 12345678,
+        "nombre": "sofia",
+        "apellido": "ramirez",
+        "edad": 12,
+        "nota": 4
     }
 ]
