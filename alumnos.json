@@ -6,6 +6,20 @@
             "apellido": "grandon",
             "edad": 23,
             "nota": 5
+        },
+        {
+            "dni": 12344,
+            "nombre": "agus",
+            "apellido": "grandon",
+            "edad": 34,
+            "nota": 2
+        },
+        {
+            "dni": 345676878,
+            "nombre": "federico",
+            "apellido": "salazar",
+            "edad": 34,
+            "nota": 7
         }
     ]
 }
