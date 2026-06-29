@@ -1,3 +1,5 @@
+from alumnos import registrar_alumno
+
 continuar = True
 
 while continuar:
