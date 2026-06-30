@@ -1,10 +1,11 @@
 from alumnos import registrar_alumno, listar_alumnos, modificar_alumno, eliminar_alumno, buscar_alumno
 from archivos import cargar_json
-from utilidades import menu_principal
+from utilidades import menu_principal, titulo_del_programa
 from estadisticas import mostrar_estadistica
 
 continuar = True
 cargar_alumnos = cargar_json("alumnos.json", "alumnos")
+titulo_del_programa()
 
 while continuar:
     menu_principal()
