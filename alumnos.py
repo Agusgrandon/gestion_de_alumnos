@@ -1,25 +1,14 @@
 from archivos import guardar_datos
 from utilidades import menu_buscar
+from validaciones import validar_nombre, validar_apellido, validar_edad, validar_nota, validar_dni
 
 def registrar_alumno(alumnos):
  
-    dni = int(input("Ingresa el DNI del alumno: "))
-
-    nombre = input("Ingresa el nombre del alumno: ")
-    while len(nombre) == 0:
-        nombre = input("El dato no puede estar vacio, ingrese el nombre del alumno: ")
-
-    apellido = input("Ingresa el apellido del alumno: ")
-    while len(apellido) == 0:
-        apellido = input("El dato no puede estar vacio, ingrese el apellido del alumno: ")
-
-    edad = int(input("Ingresa la edad del alumno: "))
-    while edad < 0:
-     edad = int(input("Error al ingresar la edad, intentelo nuevamente: "))
-
-    nota = int(input("Ingresa la nota del alumno: "))
-    while nota <= 0 or nota >= 11:
-        nota = int(input("Error, la nota debe estar entre 1 y 10: "))
+    dni = validar_dni(alumnos)
+    nombre = validar_nombre()
+    apellido = validar_apellido()
+    edad = validar_edad()
+    nota = validar_nota()
 
     alumnos[str(dni)] = {
     "nombre": nombre,
