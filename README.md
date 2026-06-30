@@ -50,7 +50,7 @@ El sistema almacena toda la información en un archivo **JSON**, permitiendo con
 - **archivos.py:** Administra la lectura y escritura del archivo `alumnos.json`.
 - **estadisticas.py:** Contiene las funciones encargadas de generar las estadísticas del sistema.
 - **menu.py:** Muestra el menú interactivo y permite acceder a las distintas funcionalidades del programa.
-- **utilidades.py:** Contiene funciones auxiliares utilizadas por diferentes módulos.
+- **utilidades.py:** Reúne funciones de apoyo encargadas de mostrar los menús y mensajes utilizados durante la ejecución del programa.
 - **validaciones.py:** Implementa las funciones de validación de los datos ingresados por el usuario.
 - **data/alumnos.json:** Archivo donde se almacenan de forma permanente los datos de los alumnos.
 
