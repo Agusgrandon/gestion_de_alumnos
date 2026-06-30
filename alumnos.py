@@ -1,6 +1,6 @@
 from archivos import guardar_datos
-from utilidades import menu_buscar
 from validaciones import validar_nombre, validar_apellido, validar_edad, validar_nota, validar_dni
+from utilidades import menu_buscar
 
 def registrar_alumno(alumnos):
  

@@ -1,7 +1,7 @@
 def titulo_del_programa():
     print("\n======== Sistema de Gestión de Alumnos ==========\n")
 
-def menu_principal():
+def opciones_de_menu():
     print("1) Registrar alumno")
     print("2) Listar alumnos")
     print("3) Buscar alumno")
