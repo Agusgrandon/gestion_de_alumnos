@@ -92,7 +92,7 @@ def modificar_alumno(alumnos):
     return alumnos
 
 def buscar_alumno(alumnos):
-    ingresar_dni = input("Ingresa el DNI del alumno que necesitas eliminar: ")
+    ingresar_dni = input("Ingresa el DNI del alumno que necesitas buscar: ")
     encontrado = False
 
     for dni in alumnos:

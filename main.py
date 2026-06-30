@@ -1,7 +1,7 @@
 from alumnos import registrar_alumno, listar_alumnos, modificar_alumno, eliminar_alumno, buscar_alumno
 from archivos import cargar_json
 from utilidades import menu_principal
-from estadisticas import mayor_nota
+from estadisticas import mostrar_estadistica
 
 continuar = True
 cargar_alumnos = cargar_json("alumnos.json", "alumnos")
@@ -12,7 +12,7 @@ while continuar:
 
     match opcion: 
         case 1:
-            ingresar_alumno = registrar_alumno(cargar_alumnos)
+            registrar_alumno(cargar_alumnos)
         case 2:
             mostrar_alumnos = listar_alumnos(cargar_alumnos)
             print(mostrar_alumnos)
@@ -20,11 +20,11 @@ while continuar:
             buscar = buscar_alumno(cargar_alumnos)
             print(buscar)
         case 4:
-            modificar = modificar_alumno(cargar_alumnos)
+            modificar_alumno(cargar_alumnos)
         case 5:
-            eliminar = eliminar_alumno(cargar_alumnos)
+            eliminar_alumno(cargar_alumnos)
         case 6:
-            mayor_nota(cargar_alumnos)
+            mostrar_estadistica(cargar_alumnos)
         case 7:
             continuar = False
             print("Adiós 👋")
