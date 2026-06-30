@@ -59,7 +59,7 @@ def mayor_nota(alumnos:dict) -> str:
     """
     valor_maximo = 0
 
-    for datos in alumnos.items():
+    for alumno, datos in alumnos.items():
         if datos["nota"] > valor_maximo:
             valor_maximo = datos["nota"]
             nombre_maximo = datos["nombre"]

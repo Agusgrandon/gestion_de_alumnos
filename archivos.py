@@ -23,7 +23,7 @@ def guardar_datos(alumnos:dict) -> None:
     Returns:
         None: La función no devuelve ningún valor.
     """
-    with open("alumnos.json", "w", encoding="utf-8") as archivo:
+    with open("data/alumnos.json", "w", encoding="utf-8") as archivo:
         json.dump({"alumnos": alumnos}, archivo, indent=4)
 
 

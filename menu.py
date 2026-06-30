@@ -11,11 +11,11 @@ def ejecucion_menu_principal() -> None:
     registrados.
     """
     continuar = True
-    cargar_alumnos = cargar_json("alumnos.json", "alumnos")
+    cargar_alumnos = cargar_json("data/alumnos.json", "alumnos")
     titulo_del_programa()
 
     while continuar:
-        
+
         opciones_de_menu()
         opcion = int(input("ingresa la opcion: "))
 
