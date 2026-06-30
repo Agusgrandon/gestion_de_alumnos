@@ -1,7 +1,7 @@
 def titulo_del_programa() -> None:
     """Muestra el título principal del programa. 
     """
-    print("\n======== Sistema de Gestión de Alumnos ==========\n")
+    print("\n======== Sistema de Gestión de Alumnos 👩‍💻 ==========\n")
 
 def opciones_de_menu() -> None:
     """Muestra las opciones del menu principal. 

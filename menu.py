@@ -17,24 +17,24 @@ def ejecucion_menu_principal() -> None:
     while continuar:
 
         opciones_de_menu()
-        opcion = int(input("ingresa la opcion: "))
+        opcion = input("ingresa la opcion: ")
 
         match opcion: 
-            case 1:
+            case "1":
                 registrar_alumno(cargar_alumnos)
-            case 2:
+            case "2":
                 mostrar_alumnos = listar_alumnos(cargar_alumnos)
                 print(mostrar_alumnos)
-            case 3:
+            case "3":
                 buscar = buscar_alumno(cargar_alumnos)
                 print(buscar)
-            case 4:
+            case "4":
                 modificar_alumno(cargar_alumnos)
-            case 5:
+            case "5":
                 eliminar_alumno(cargar_alumnos)
-            case 6:
+            case "6":
                 mostrar_estadistica(cargar_alumnos)
-            case 7:
+            case "7":
                 continuar = False
                 print("Adiós 👋")
             case _:

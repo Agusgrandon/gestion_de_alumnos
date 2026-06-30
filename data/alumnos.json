@@ -1,40 +1,22 @@
 {
     "alumnos": {
-        "123": {
-            "nombre": "sofia",
-            "apellido": "ramirez",
-            "edad": 45,
-            "nota": 7
-        },
-        "1234": {
-            "nombre": "agus",
-            "apellido": "grandon",
-            "edad": 34,
-            "nota": 1
-        },
-        "32423454": {
-            "nombre": "juan",
-            "apellido": "perez",
-            "edad": 48,
+        "1": {
+            "nombre": "leandro ",
+            "apellido": "paredes",
+            "edad": 39,
             "nota": 10
         },
-        "98576": {
-            "nombre": "emilia",
-            "apellido": "mernes",
-            "edad": 34,
-            "nota": 5
+        "2": {
+            "nombre": "lionel",
+            "apellido": "messi",
+            "edad": 39,
+            "nota": 10
         },
-        "89": {
+        "3": {
             "nombre": "taylor",
             "apellido": "swift",
-            "edad": 23,
-            "nota": 7
-        },
-        "23": {
-            "nombre": "selena",
-            "apellido": "gomez",
-            "edad": 30,
-            "nota": 7
+            "edad": 35,
+            "nota": 10
         }
     }
 }

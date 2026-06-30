@@ -43,7 +43,7 @@ def listar_alumnos(alumnos:dict) -> str:
         str: Cadena de texto con el listado completo de alumnos o un mensaje indicando que no hay alumnos registrados.
     """
     if len(alumnos) == 0:
-        mensaje = f"No hay alumnos todavia para mostrar"
+        mensaje = f"No hay alumnos todavia para mostrar 👨‍🎓"
     else:
         mensaje = "\n======== ALUMNOS ==========\n"
         for dni in alumnos:
@@ -161,7 +161,7 @@ def eliminar_alumno(alumnos:dict) -> dict:
         print("El DNI que ingresaste no existe 😥")
     elif eliminar == True:
         alumnos.pop(ingresar_dni)
-        print("Alumno dado de baja")
+        print("Alumno dado de baja ✔")
 
     guardar_datos(alumnos)
 

@@ -116,17 +116,19 @@ def cantidad_desaprobados(alumnos:dict) -> str:
 def mostrar_estadistica(alumnos:dict) -> None:
     """Muestra por pantalla las estadísticas generales de los alumnos registrados.
     La función imprime un encabezado y presenta las principales estadísticas
-    obtenidas a partir de los datos de los alumnos, incluyendo la cantidad
-    total de alumnos, el promedio de notas, el alumno con la nota más alta,
-    la cantidad de aprobados y la cantidad de desaprobados.
+    obtenidas a partir de los datos de los alumnos, si todavia no hay alumnos registrados,
+    muestra un mensaje de que no hay datos todavia. 
 
     Args:
         alumnos (dict): Diccionario que contiene los alumnos registrados.
     """
-    print("\n---- ESTADISTICAS ----")
-    print(cantidad_de_alumnos(alumnos))
-    print(promedio_notas(alumnos))
-    print(mayor_nota(alumnos))
-    print(cantidad_aprobados(alumnos))
-    print(cantidad_desaprobados(alumnos))
-    print("-" * 60)
+    if len(alumnos) == 0:
+        print("No hay alumnos todavia para mostrar 👨‍🎓")
+    else:
+        print("\n---- ESTADISTICAS ----")
+        print(cantidad_de_alumnos(alumnos))
+        print(promedio_notas(alumnos))
+        print(mayor_nota(alumnos))
+        print(cantidad_aprobados(alumnos))
+        print(cantidad_desaprobados(alumnos))
+        print("-" * 60)

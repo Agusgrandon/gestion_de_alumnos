@@ -27,4 +27,3 @@ def guardar_datos(alumnos:dict) -> None:
         json.dump({"alumnos": alumnos}, archivo, indent=4)
 
 
-
