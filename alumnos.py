@@ -25,14 +25,14 @@ def listar_alumnos(alumnos):
     if len(alumnos) == 0:
         mensaje = f"No hay alumnos todavia para listar"
     else:
-        mensaje = ""
+        mensaje = "\n======== ALUMNOS ==========\n"
         for dni in alumnos:
             mensaje += (f"DNI: {dni}\n"
                        f"Nombre: {alumnos[dni]['nombre']}\n"
                        f"Apellido: {alumnos[dni]['apellido']}\n"
                        f"Edad: {alumnos[dni]['edad']}\n"
                        f"Nota: {alumnos[dni]['nota']}\n"
-                       f"-----------------------------\n")
+                       f"-----------------------------\n")        
     return mensaje      
 
 def modificar_alumno(alumnos):
@@ -50,31 +50,24 @@ def modificar_alumno(alumnos):
 
             match modificar:
                 case "1":
-                    nombre = input("Ingresa el nombre del alumno: ")
-                    while len(nombre) == 0:
-                        nombre = input("El dato no puede estar vacio, ingrese el nombre del alumno: ")
+                    nombre = validar_nombre()
                     alumnos[ingresar_dni]["nombre"] = nombre
                     print('¡Datos modificados con exito!')
                 case "2":
-                    apellido = input("Ingresa el apellido del alumno: ")
-                    while len(apellido) == 0:
-                        nombre = input("El dato no puede estar vacio, ingrese el apellido del alumno: ")
+                    apellido = validar_apellido()
                     alumnos[ingresar_dni]["apellido"] = apellido
                     print('¡Datos modificados con exito!')
                 case "3":
-                    edad = int(input("Ingresa la edad del alumno: "))
-                    while edad < 0:
-                        edad = int(input("Error al ingresar la edad, intentelo nuevamente: "))
+                    edad = validar_edad()
                     alumnos[ingresar_dni]["edad"] = edad
                     print('¡Datos modificados con exito!')
                 case "4":
-                    nota = int(input("Ingresa la nota del alumno: "))
-                    while nota <= 0 or nota >= 11:
-                        nota = int(input("Error, la nota debe estar entre 1 y 10: "))
+                    nota = validar_nota()
                     alumnos[ingresar_dni]["nota"] = nota
                     print('¡Datos modificados con exito!')
-        else:
-            print(f"El DNI que ingresaste no existe en el listado de alumnos 😥")
+
+    if encontrado == False:
+        print(f"El DNI que ingresaste no existe en el listado de alumnos 😥")
 
     guardar_datos(alumnos)
 
@@ -88,8 +81,9 @@ def buscar_alumno(alumnos):
         if dni == ingresar_dni:
             encontrado = True
             mensaje = f"Dato encontrado con exito, nombre {alumnos[dni]['nombre']} {alumnos[dni]['apellido']}, edad {alumnos[dni]['edad']}, nota {alumnos[dni]['nota']}."
-        else:
-            mensaje = f"El DNI que ingresaste no existe en el listado de alumnos 😥"
+
+    if encontrado == False:
+        mensaje = f"El DNI que ingresaste no existe en el listado de alumnos 😥"
 
     return mensaje
      
