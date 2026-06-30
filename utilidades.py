@@ -1,7 +1,11 @@
-def titulo_del_programa():
+def titulo_del_programa() -> None:
+    """Muestra el título principal del programa. 
+    """
     print("\n======== Sistema de Gestión de Alumnos ==========\n")
 
-def opciones_de_menu():
+def opciones_de_menu() -> None:
+    """Muestra las opciones del menu principal. 
+    """
     print("1) Registrar alumno")
     print("2) Listar alumnos")
     print("3) Buscar alumno")
@@ -10,7 +14,9 @@ def opciones_de_menu():
     print("6) Ver estadisticas")
     print("7) Salir\n")
 
-def menu_buscar():
+def menu_buscar() -> None:
+    """Muestra las opciones disponibles para modificar los datos de un alumno.
+    """
     print("1) Nombre")
     print("2) Apellido")
     print("3) Edad")
