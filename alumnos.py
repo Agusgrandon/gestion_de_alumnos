@@ -139,7 +139,7 @@ def eliminar_alumno(alumnos:dict) -> dict:
     Returns:
         dict: Diccionario actualizado. 
     """
-
+    
     ingresar_dni = input("Ingresa el DNI del alumno que necesitas eliminar: ")
     encontrado = False
     eliminar = False
